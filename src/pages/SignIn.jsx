@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import UserContext from "../context/userContext";
 import Navbar from "../components/Navbar";
@@ -8,10 +8,11 @@ export default () => {
   const [email, setEmail] = useState("auth1@gmail.com");
   const [password, setPassword] = useState("12345678");
   const state = useContext(UserContext);
-
+  const navigate = useNavigate();
   const onHandlerSign = () => {
     if (email && password) {
       state.signin(email, password);
+      navigate("/", { replace: true });
     } else {
       state.setToastMsg("Мэдээллээ гүйцэт оруулна уу");
     }

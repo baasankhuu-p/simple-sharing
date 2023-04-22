@@ -3,7 +3,6 @@ import { useContext } from "react";
 import UserContext from "../context/userContext";
 
 export default function Splash() {
-  console.log(localStorage.getItem("user"));
   const state = useContext(UserContext);
   useEffect(() => {
     if (

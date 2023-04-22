@@ -6,7 +6,7 @@ import Newposts from "./pages/Newposts";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Post from "./components/Post";
+import Post from "./pages/Post";
 import UserContext from "./context/userContext";
 import NotFound from "./pages/NotFound";
 import Splash from "./components/Splash";
@@ -20,6 +20,7 @@ export default function Router() {
       <Splash />
       <BrowserRouter>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           {state.isLogin && <Route path="/new-posts" element={<Newposts />} />}
           <Route path="/post/:id" element={<Post />} />
@@ -29,7 +30,6 @@ export default function Router() {
               <Route path="/sign-up" element={<SignUp />} />
             </>
           )}
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

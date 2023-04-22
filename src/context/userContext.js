@@ -11,7 +11,6 @@ export const UserStore = (props) => {
   const [toastMsg, setToastMsg] = useState("Түр хүлээнэ үү ...");
 
   const signin = (email, password) => {
-    console.log(email, password);
     axios
       .post(`${RestApiUrl}/users/signin`, {
         email: email ? email.trim() : email,
