@@ -1,10 +1,13 @@
 import axios from "axios";
 import { RestApiUrl } from "../constants";
 export const getPosts = () => {
-  return axios.get(`${RestApiUrl}/posts`);
+  return axios.get(`${RestApiUrl}/api/posts`);
 };
 export const getPost = (id) => {
-  return axios.get(`${RestApiUrl}/posts/${id}`);
+  return axios.get(`${RestApiUrl}/api/posts/${id}`);
+};
+export const getAuthPost = (id) => {
+  return axios.get(`${RestApiUrl}/api/posts/auth/${id}`);
 };
 export const createPost = (token, post) => {
   const config = {
@@ -12,8 +15,8 @@ export const createPost = (token, post) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  return axios.post(`${RestApiUrl}/posts/`, post, config);
+  return axios.post(`${RestApiUrl}/api/posts/`, post, config);
 };
 export const updatePost = (post, id) => {
-  return axios.post(`${RestApiUrl}/posts/${id}`, post);
+  return axios.post(`${RestApiUrl}/api/posts/${id}`, post);
 };
