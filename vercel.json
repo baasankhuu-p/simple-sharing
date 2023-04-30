@@ -11,7 +11,8 @@
             "dest": "index.js"
         }
     ],
-    "ignore": [
-        "node_modules"
+    "files": [
+        "index.js",
+        "package.json"
     ]
 }
